@@ -1,0 +1,40 @@
+{
+  "name": "joefitter.com",
+  "version": "0.0.1",
+  "description": "This is my personal website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "aliasify": "^1.7.2",
+    "brfs": "^1.4.0",
+    "browser-sync": "^2.5.0",
+    "browserify": "^9.0.3",
+    "browserify-handlebars": "^1.0.0",
+    "gulp": "^3.8.11",
+    "gulp-compass": "^2.0.4",
+    "gulp-sourcemaps": "^1.5.1",
+    "gulp-streamify": "0.0.5",
+    "gulp-util": "^3.0.4",
+    "handlebars": "^3.0.1",
+    "require-dir": "^0.3.0",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0",
+    "watchify": "^3.0.0"
+  },
+  "dependencies": {
+    "backbone": "^1.1.2",
+    "backbone.marionette": "^2.4.1",
+    "backbone.radio": "^0.9.0",
+    "jquery": "^2.1.3",
+    "lodash": "^3.6.0"
+  },
+  "aliasify": {
+    "aliases": {
+      "base": "./src/js/base"
+    }
+  }
+}

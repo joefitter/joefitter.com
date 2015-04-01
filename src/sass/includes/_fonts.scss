@@ -1,0 +1,4 @@
+@import "compass/css3/font-face";
+@include font-face('DroidSans', font-files('DroidSansMono.woff', 'DroidSansMono.ttf', 'DroidSansMono.svg'), 'DroidSansMono.eot');
+
+$droid-sans: 'DroidSans', 'Courier New', monospace;

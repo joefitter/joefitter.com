@@ -1,0 +1,54 @@
+@import 'includes/_fonts.scss';
+
+$light-blue: #c0dfe8;
+$grey: #282a2c;
+$white: #ffffff;
+$yellow: #f4ea85;
+$blue: #5d98b8;
+$orange: #f79952;
+$green: #a1d07b;
+
+body {
+  background-color: $grey;
+  margin: 0;
+  padding: 0;
+  width: 1200px;
+
+  #content {
+    margin: 3em auto;
+
+    #cv {
+      font-family: $droid-sans;
+      color: $white;
+      word-wrap: break-word;
+
+      span {
+        display: inline;
+      }
+
+      .default: {
+        color: $white;
+      }
+
+      .function {
+        color: $blue;
+      }
+
+      .string {
+        color: $light-blue;
+      }
+
+      .identifier {
+        color: $yellow;
+      }
+
+      .reserved, .arg {
+        color: $orange;
+      }
+
+      .number {
+        color: $green;
+      }
+    }
+  }
+}
