@@ -8,10 +8,7 @@ var View = Base.ItemView.extend({
   className: function() {
     return this.model.get('type');
   },
-  template: template,
-  initialize: function() {
-    console.log('SEGMENT');
-  }
+  template: template
 });
 
 module.exports = View;

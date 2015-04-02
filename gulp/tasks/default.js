@@ -2,4 +2,4 @@
 
 var gulp = require('gulp');
 
-gulp.task('default', ['compass', 'html', 'browserify', 'watch']);
+gulp.task('default', ['fonts', 'compass', 'html', 'images', 'browserify', 'watch']);

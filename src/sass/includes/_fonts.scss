@@ -1,4 +1,8 @@
 @import "compass/css3/font-face";
+
 @include font-face('DroidSans', font-files('DroidSansMono.woff', 'DroidSansMono.ttf', 'DroidSansMono.svg'), 'DroidSansMono.eot');
+@include font-face('OpenSans', font-files('OpenSans.woff', 'OpenSans.ttf', 'OpenSans.svg'), 'OpenSans.eot');
 
 $droid-sans: 'DroidSans', 'Courier New', monospace;
+$open-sans: 'OpenSans', 'Helvetica', 'Arial', sans-serif;
+

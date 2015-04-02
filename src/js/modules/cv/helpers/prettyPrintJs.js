@@ -4,13 +4,13 @@ var constants = require('../helpers/constants');
 var _ = require('lodash');
 
 function splitOnStrings(line) {
-  var strings = line.match(/(["'])(?:(?=(\\?))\2.)*?\1/g);
+  var strings = line.match(/(["'])(\\?.)*?\1/g);
 
   if (!strings) {
     return [line];
   }
 
-  return splitOnMultiple(line, strings, 'string');
+  return splitOnMultiple(line, strings, false, 'string');
 }
 
 function splitOnNumbers(array) {
@@ -28,7 +28,7 @@ function splitOnNumbers(array) {
       return;
     }
 
-    var result = splitOnMultiple(item, numbers, 'number');
+    var result = splitOnMultiple(item, numbers, false, 'number');
 
     store.push(result);
     store = _.flatten(store);
@@ -47,7 +47,7 @@ function splitOnReservedWords(array) {
       return;
     }
 
-    var result = splitOnMultiple(item, constants.reservedWords, 'reserved');
+    var result = splitOnMultiple(item, constants.reservedWords, true, 'reserved');
 
     store.push(result);
     store = _.flatten(store);
@@ -64,7 +64,7 @@ function splitOnIdentifiers(array) {
       return;
     }
 
-    var result = splitOnMultiple(item, constants.identifiers, 'identifier');
+    var result = splitOnMultiple(item, constants.identifiers, true, 'identifier');
 
     store.push(result);
     store = _.flatten(store);
@@ -88,7 +88,7 @@ function splitOnFunctions(array) {
       return;
     }
 
-    var result = splitOnMultiple(item, functionNames, 'function');
+    var result = splitOnMultiple(item, functionNames, false, 'function');
 
     store.push(result);
     store = _.flatten(store);
@@ -108,8 +108,6 @@ function splitOnArguments(array) {
 
     var prev = array[index - 1];
 
-    console.log(item, prev);
-
     if (prev && prev.type !== 'function') {
       store.push(item);
       return;
@@ -124,7 +122,7 @@ function splitOnArguments(array) {
 
     var args = item.match(/(\w)+/g);
 
-    var result = splitOnMultiple(item, args, 'arg');
+    var result = splitOnMultiple(item, args, false, 'arg');
 
     store.push(result);
     store = _.flatten(store);
@@ -133,12 +131,88 @@ function splitOnArguments(array) {
   return store;
 }
 
-function splitOnMultiple(input, array, type) {
+function reEscape(str) {
+  return str.replace(/([\.\$\^\{\[\(\|\)\*\+\?\\]+)/g, function(a) {
+    return '\\' + a;
+  });
+}
+
+function splitOnCompartors(array) {
+  var store = [];
+  _.each(array, function(item) {
+    if (typeof item === 'object') {
+      store.push(item);
+      return;
+    }
+
+    var result = splitOnMultipleSymbols(item, constants.comparators, 'comparator');
+
+    store.push(result);
+    store = _.flatten(store);
+
+  });
+
+  return store;
+}
+
+function splitOnModifiers(array) {
+  var store = [];
+  _.each(array, function(item) {
+    if (typeof item === 'object') {
+      store.push(item);
+      return;
+    }
+
+    var result = splitOnMultipleSymbols(item, constants.modifiers, 'modifier');
+
+    store.push(result);
+    store = _.flatten(store);
+
+  });
+
+  return store;
+}
+
+function splitOnMultipleSymbols(input, array, type) {
+  var result;
+  var re = '([';
+  _.each(array, function(item, index) {
+    re += reEscape(item);
+    if (index < array.length - 1) {
+      re += '|';
+    }
+  });
+  re += '])+';
+
+  re = new RegExp(re, 'g');
+
+  result = input.split(re);
+
+  return _.without(_.map(result, function(item) {
+    if (array.indexOf(item) === -1) {
+      return item;
+    }
+    return {
+      item: item,
+      type: type
+    };
+  }), '');
+
+}
+
+function splitOnMultiple(input, array, wholeWords, type) {
   var result;
   var re = '(';
 
   _.each(array, function(item, index) {
-    re += item;
+    if (wholeWords) {
+      re += '\\b';
+    }
+    re += reEscape(item);
+    if (wholeWords) {
+      re += '\\b';
+    }
+
     if (index < array.length - 1) {
       re += '|';
     }
@@ -176,15 +250,19 @@ function mapDefaults(array) {
 module.exports = function(string) {
   return mapDefaults(
     splitOnArguments(
-      splitOnFunctions(
-        splitOnIdentifiers(
-          splitOnReservedWords(
-            splitOnNumbers(
-              splitOnStrings(string)
+      splitOnModifiers(
+        splitOnCompartors(
+          splitOnFunctions(
+            splitOnIdentifiers(
+              splitOnReservedWords(
+                splitOnNumbers(
+                  splitOnStrings(string)
+                )
+              )
             )
           )
         )
       )
     )
   );
-}
+};

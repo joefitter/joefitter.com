@@ -7,8 +7,16 @@ var channel = Base.Radio.channel('main');
 var PageView = Base.ItemView.extend({
   template: template,
 
+  tagName: 'li',
+
   events: {
     'click': 'linkClicked'
+  },
+
+  initialize: function() {
+    this.listenTo(this.model, 'change', function() {
+      this.render();
+    });
   },
 
   linkClicked: function(event) {
@@ -17,6 +25,8 @@ var PageView = Base.ItemView.extend({
     if (!event.altKey && !event.ctrlKey && !event.metaKey && !event.shiftKey) {
       event.preventDefault();
     }
+
+    console.log('hi', href)
 
     channel.command('changePage', href);
 

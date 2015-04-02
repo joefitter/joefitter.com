@@ -6,19 +6,26 @@ module.exports = {
   },
   header: {
     el: '#header',
-    pages: [{
-      title: 'Home',
-      href: '/',
-    },
-    {
-      title: 'CV',
-      href: '/cv'
-    }],
-    github: {
-      username: 'joefitter',
-      href: 'https://github.com/',
-      img: '',
-      alt: 'Fork me on GitHub',
+    nav: {
+      settings: {
+        title: '{joeFitter}',
+        href: '/',
+        ghUsername: 'joefitter',
+        ghHref: 'https://github.com/',
+        ghRepo: '/joefitter.com',
+        ghSrc: '/img/gh.png',
+        ghAlt: 'Fork me on GitHub',
+      },
+      pages: [{
+        id: 'home',
+        title: 'home',
+        href: '/',
+      },
+      {
+        id: 'cv',
+        title: 'cv',
+        href: '/cv'
+      }]
     }
   },
   content: {

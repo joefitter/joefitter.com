@@ -6,6 +6,7 @@ var _ = require('lodash');
 var app = Base.getInstance();
 var View = require('../views');
 var Collection = require('../collections/lines');
+var cv = require('../helpers/cv');
 var fs = require('fs');
 var cvAsText = fs.readFileSync(__dirname + '/../helpers/cv.js', 'utf8');
 
@@ -17,6 +18,7 @@ var Controller = Base.Object.extend({
         line: line
       };
     }));
+    console.log(cv);
     this._show();
   },
 

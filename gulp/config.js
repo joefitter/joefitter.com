@@ -3,9 +3,10 @@ var src = './src';
 
 module.exports = {
   browserSync: {
-    server: {
-      baseDir: dest
-    }
+    proxy: 'http://localhost:3000',
+    files: dest + '/**/*.*',
+    browser: 'google chrome',
+    port: 7000
   },
   compass: {
     src: src + '/sass/**/*.scss',
@@ -21,5 +22,22 @@ module.exports = {
     src: src + '/js/index.js',
     dest: dest + '/js',
     exports: 'app.js'
+  },
+  images: {
+    src: src + '/img/**',
+    dest: dest + '/img'
+  },
+  nodemon: {
+    src: './server/server.js',
+    watch: './server/server.js',
+    ignore: [
+      'src/**',
+      'dist/**',
+      'node_modules'
+    ]
+  },
+  fonts: {
+    src: src + '/fonts/**/*',
+    dest: dest + '/fonts'
   }
 };

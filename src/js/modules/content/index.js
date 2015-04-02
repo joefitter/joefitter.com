@@ -2,7 +2,7 @@
 
 var Base = require('base');
 var app = Base.getInstance();
-var channel = Base.Radio.channel('main');
+var channel = Base.Radio.channel('content');
 var Controller = require('./controllers');
 var _ = require('lodash');
 

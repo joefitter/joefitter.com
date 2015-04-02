@@ -1,18 +1,87 @@
 @import 'includes/_fonts.scss';
+@import "compass/css3/border-radius";
 
-$light-blue: #c0dfe8;
+$light-blue: #c4e2f2;
 $grey: #282a2c;
+$mid-grey: #32363b;
+$light-grey: #4b4f53;
+$light-grey-text: #909293;
+$off-black: #131416;
 $white: #ffffff;
 $yellow: #f4ea85;
 $blue: #5d98b8;
-$orange: #f79952;
+$orange: #fa9a4b;
 $green: #a1d07b;
 
 body {
   background-color: $grey;
   margin: 0;
   padding: 0;
-  width: 1200px;
+  font-family: $open-sans;
+
+  .wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  header {
+    position: relative;
+    padding-top: 1em;
+    background-color: $off-black;
+
+    nav {
+      #logo {
+        font-family: $droid-sans;
+        color: $white;
+        text-decoration: none;
+        float: left;
+        margin-right: 10px;
+
+        &:hover {
+          color: $orange;
+        }
+      }
+
+      ul {
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+
+        li {
+          float: left;
+          margin-left: 3px;
+
+          a {
+            color: $light-grey-text;
+            text-decoration: none;
+            display: block;
+            background-color: $mid-grey;
+            padding: 5px 15px;
+            @include border-radius(5px 5px 0px 0px);
+
+            &.selected {
+              color: $white;
+              background-color: $light-grey;
+            }
+          }
+        }
+
+      }
+      .nav-base {
+        width: 100%;
+        background-color: $light-grey;
+        border-bottom: 1px solid $off-black;
+        height: 5px;
+        clear: both;
+      }
+    }
+
+    #gh {
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+  }
 
   #content {
     margin: 3em auto;
@@ -20,7 +89,7 @@ body {
     #cv {
       font-family: $droid-sans;
       color: $white;
-      word-wrap: break-word;
+      white-space: pre-wrap;
 
       span {
         display: inline;
@@ -42,7 +111,7 @@ body {
         color: $yellow;
       }
 
-      .reserved, .arg {
+      .reserved, .arg, .comparator, .modifier {
         color: $orange;
       }
 

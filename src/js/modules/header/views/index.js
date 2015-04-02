@@ -2,13 +2,41 @@
 
 var Base = require('base');
 var template = require('../templates/index.hbs');
-var PageView = require('./page');
+var GhView = require('./ghView');
+var NavView = require('./nav');
 
-var View = Base.CollectionView.extend({
-  childView: PageView,
-  tagName: 'ul',
-  initialize: function() {
-    console.log('headerView');
+var View = Base.LayoutView.extend({
+  template: template,
+
+  regions: {
+    logo: '#logo',
+    nav: 'nav',
+    gh: '#gh'
+  },
+
+  initialize: function(config) {
+    this.config = config;
+  },
+
+  onRender: function() {
+    this._showViews();
+  },
+
+  _showViews: function() {
+    var ghView = new GhView({
+      model: this.model
+    });
+    this.gh.show(ghView);
+
+    var navView = new NavView({
+      collection: this.collection,
+      model: this.model
+    });
+    this.nav.show(navView);
+  },
+
+  onDestroy: function() {
+    this._hide();
   }
 });
 

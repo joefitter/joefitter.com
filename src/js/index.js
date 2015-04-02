@@ -1,6 +1,7 @@
 'use strict';
 
-var app = require('base').getInstance();
+var Base = require('base');
+var app = Base.getInstance();
 var config = require('./config');
 require('./modules');
 require('./router');

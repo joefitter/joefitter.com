@@ -11,13 +11,7 @@ _.extend(Base, Backbone);
 _.extend(Base, Backbone.Marionette);
 
 _.extend(Base, {
-  Application: Base.Application.extend({
-    onStart: function() {
-      Base.history.start({
-        pushState: true
-      });
-    }
-  }),
+  Application: Base.Application.extend(require('./app')),
   getInstance: function() {
     if (!this.instance) {
       this.instance = new this.Application();

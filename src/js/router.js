@@ -5,8 +5,7 @@ var channel = Base.Radio.channel('main');
 
 var AppRouter = Base.Router.extend({
   routes: {
-    '(:id)': 'getContent',
-    '': 'showHash'
+    '(:id)': 'getContent'
   }
 });
 

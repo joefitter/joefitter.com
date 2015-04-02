@@ -27,8 +27,7 @@ module.exports = {
     'typeof',
     'while',
     'with',
-    'yield',
-    '='
+    'yield'
   ],
   identifiers: [
     'class',
@@ -39,5 +38,21 @@ module.exports = {
     'let',
     'var',
     'void'
+  ],
+  comparators: [
+    '=',
+    '&',
+    '|',
+    '>',
+    '<',
+    '!'
+  ],
+  modifiers: [
+    '+',
+    '-',
+    '/',
+    '*',
+    '^',
+    '%',
   ]
 };
