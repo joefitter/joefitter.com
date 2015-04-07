@@ -13,6 +13,31 @@ function splitOnStrings(line) {
   return splitOnMultiple(line, strings, false, 'string');
 }
 
+function splitOnIndentation(array) {
+  var store = [];
+  _.each(array, function(item) {
+    if (typeof item === 'object') {
+      store.push(item);
+      return
+    }
+
+    var indentations = item.match(/\s\s/g);
+
+    if (!indentations) {
+      store.push(item);
+      return;
+    }
+
+    var result = splitOnMultiple(item, indentations, false, 'tab');
+
+    store.push(result);
+    store = _.flatten(store);
+
+  });
+
+  return store;
+}
+
 function splitOnNumbers(array) {
   var store = [];
   _.each(array, function(item) {
@@ -255,8 +280,10 @@ module.exports = function(string) {
           splitOnFunctions(
             splitOnIdentifiers(
               splitOnReservedWords(
-                splitOnNumbers(
-                  splitOnStrings(string)
+                splitOnIndentation(
+                  splitOnNumbers(
+                    splitOnStrings(string)
+                  )
                 )
               )
             )

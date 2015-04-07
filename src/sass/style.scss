@@ -25,7 +25,9 @@ body {
   }
 
   header {
-    position: relative;
+    position: fixed;
+    width: 100%;
+    top: 0;
     padding-top: 1em;
     background-color: $off-black;
 
@@ -84,12 +86,37 @@ body {
   }
 
   #content {
-    margin: 3em auto;
+    margin: 100px auto;
 
     #cv {
       font-family: $droid-sans;
       color: $white;
       white-space: pre-wrap;
+
+      >div {
+        text-indent: -1.25em;
+        padding-left: 1.25em;
+
+        &.tabs-1 {
+          text-indent: -2.5em;
+          padding-left: 2.5em;
+        }
+
+        &.tabs-2 {
+          text-indent: -3.75em;
+          padding-left: 3.75em;
+        }
+
+        &.tabs-3 {
+          text-indent: -5em;
+          padding-left: 5em;
+        }
+
+        &.tabs-4 {
+          text-indent: -6.25em;
+          padding-left: 6.25em;
+        }
+      }
 
       span {
         display: inline;
