@@ -39,7 +39,7 @@
   },
   "aliasify": {
     "aliases": {
-      "base": "./src/js/base"
+      "base": "./src/app/base"
     }
   }
 }

@@ -1,0 +1,13 @@
+Hello.
+
+My name is {joeFitter}.
+
+I am a JavaScript Developer.
+
+I am based in Brighton UK and currently work for  pebble {code}  in Vauxhall, London.
+
+I specialise in rich user interfaces and performant single page applications.
+
+You can find me on <a href="https://github.com/joefitter" target="_blank">GitHub</a>, <a href="http://stackoverflow.com/users/4571952/joe-fitter" target="_blank">Stack Overflow</a> and <a href="https://www.linkedin.com/profile/view?id=92588887" target="_blank">LinkedIn</a>.
+
+Or you can email me directly <a href="mailto:hello@joefitter.com">here</a>.

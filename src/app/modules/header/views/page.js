@@ -26,8 +26,6 @@ var PageView = Base.ItemView.extend({
       event.preventDefault();
     }
 
-    console.log('hi', href)
-
     channel.command('changePage', href);
 
     return false;

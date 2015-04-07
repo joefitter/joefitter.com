@@ -19,7 +19,7 @@ module.exports = {
     dest: dest
   },
   browserify: {
-    src: src + '/js/index.js',
+    src: src + '/app/index.js',
     dest: dest + '/js',
     exports: 'app.js'
   },

@@ -3,124 +3,46 @@
 var constants = require('../helpers/constants');
 var _ = require('lodash');
 
-function splitOnStrings(line) {
-  var strings = line.match(/(["'])(\\?.)*?\1/g);
+function loopAndSplit(array, regex, wholeWords, className) {
+  var result = [];
+  _.each(array, function(item, index) {
+    if (typeof item === 'object') {
+      result.push(item);
+      return;
+    }
 
-  if (!strings) {
-    return [line];
-  }
+    result.push(splitOnMultiple(item, item.match(regex), wholeWords, className));
+  });
 
-  return splitOnMultiple(line, strings, false, 'string');
+  return _.flatten(result);
+}
+
+function splitOnLineComments(array) {
+  return loopAndSplit(array, new RegExp('\/\/.*', 'g'), false, 'comment');
+}
+
+function splitOnStrings(array) {
+  return loopAndSplit(array, new RegExp(/(["'])(\\?.)*?\1/g), false, 'string');
 }
 
 function splitOnIndentation(array) {
-  var store = [];
-  _.each(array, function(item) {
-    if (typeof item === 'object') {
-      store.push(item);
-      return
-    }
-
-    var indentations = item.match(/\s\s/g);
-
-    if (!indentations) {
-      store.push(item);
-      return;
-    }
-
-    var result = splitOnMultiple(item, indentations, false, 'tab');
-
-    store.push(result);
-    store = _.flatten(store);
-
-  });
-
-  return store;
+  return loopAndSplit(array, new RegExp('\\s\\s', 'g'), false, 'tab');
 }
 
 function splitOnNumbers(array) {
-  var store = [];
-  _.each(array, function(item) {
-    if (typeof item === 'object') {
-      store.push(item);
-      return;
-    }
-
-    var numbers = item.match(/\d+/g);
-
-    if (!numbers) {
-      store.push(item);
-      return;
-    }
-
-    var result = splitOnMultiple(item, numbers, false, 'number');
-
-    store.push(result);
-    store = _.flatten(store);
-
-  });
-
-  return store;
+  return loopAndSplit(array, new RegExp('\\d+', 'g'), true, 'number');
 }
 
 function splitOnReservedWords(array) {
-  var store = [];
-  _.each(array, function(item) {
-
-    if (typeof item === 'object') {
-      store.push(item);
-      return;
-    }
-
-    var result = splitOnMultiple(item, constants.reservedWords, true, 'reserved');
-
-    store.push(result);
-    store = _.flatten(store);
-  });
-
-  return store;
+  return loopAndSplit(array, constants.reservedWords.join('|'), true, 'reserved');
 }
 
 function splitOnIdentifiers(array) {
-  var store = [];
-  _.each(array, function(item) {
-    if (typeof item === 'object') {
-      store.push(item);
-      return;
-    }
-
-    var result = splitOnMultiple(item, constants.identifiers, true, 'identifier');
-
-    store.push(result);
-    store = _.flatten(store);
-  });
-
-  return store;
+  return loopAndSplit(array, constants.identifiers.join('|'), true, 'identifier');
 }
 
 function splitOnFunctions(array) {
-  var store = [];
-  _.each(array, function(item) {
-    if (typeof item === 'object') {
-      store.push(item);
-      return;
-    }
-
-    var functionNames = item.match(/^.*(?=(\())/g);
-
-    if (!functionNames) {
-      store.push(item);
-      return;
-    }
-
-    var result = splitOnMultiple(item, functionNames, false, 'function');
-
-    store.push(result);
-    store = _.flatten(store);
-
-  });
-
-  return store;
+  return loopAndSplit(array, new RegExp('^.*(?=(\\())', 'g') , false, 'function');
 }
 
 function splitOnArguments(array) {
@@ -226,6 +148,10 @@ function splitOnMultipleSymbols(input, array, type) {
 }
 
 function splitOnMultiple(input, array, wholeWords, type) {
+  if (!array) {
+    return input;
+  }
+
   var result;
   var re = '(';
 
@@ -282,7 +208,9 @@ module.exports = function(string) {
               splitOnReservedWords(
                 splitOnIndentation(
                   splitOnNumbers(
-                    splitOnStrings(string)
+                    splitOnStrings(
+                      splitOnLineComments([string])
+                    )
                   )
                 )
               )

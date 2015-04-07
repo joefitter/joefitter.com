@@ -4,7 +4,7 @@ var Base = require('base');
 var LineView = require('./lineView');
 
 var View = Base.CollectionView.extend({
-  tagName: 'pre',
+  tagName: 'ol',
   id: 'cv',
   className: 'wrapper',
   childView: LineView

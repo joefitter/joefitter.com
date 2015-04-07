@@ -1,14 +1,15 @@
 'use strict';
 
 var Base = require('base');
+var Controller = require('./controllers');
 
 var HomeModule = Base.Module.extend({
   startWithParent: false,
-  onStart: function() {
-    console.log('home module started');
+  onStart: function(config) {
+    this._controller = new Controller(config);
   },
   onBeforeStop: function() {
-    console.log('home module stopped');
+    this._controller.destroy();
   }
 });
 

@@ -1,17 +1,32 @@
-@import 'includes/_fonts.scss';
+@import 'includes/_fonts';
 @import "compass/css3/border-radius";
+@import "compass/css3/animation";
+@import "compass/css3/transition";
+
+@include keyframes(fadeInOut) {
+  0%   { opacity: 1; }
+  50% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@include keyframes(fadeIn) {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
 
 $light-blue: #c4e2f2;
 $grey: #282a2c;
 $mid-grey: #32363b;
 $light-grey: #4b4f53;
 $light-grey-text: #909293;
+$grey-text: #798188;
 $off-black: #131416;
 $white: #ffffff;
 $yellow: #f4ea85;
 $blue: #5d98b8;
 $orange: #fa9a4b;
 $green: #a1d07b;
+$pink: #ee4f7e;
 
 body {
   background-color: $grey;
@@ -86,47 +101,54 @@ body {
   }
 
   #content {
-    margin: 100px auto;
+    margin: 75px auto;
 
-    #cv {
+    #cursor {
+      width: 0;
+      height: 1em;
+      border-left: 1px solid white;
+      @include animation(fadeInOut 1s infinite);
+    }
+
+    #cv, #marquee {
       font-family: $droid-sans;
-      color: $white;
       white-space: pre-wrap;
+      color: $grey-text;
 
-      >div {
-        text-indent: -1.25em;
-        padding-left: 1.25em;
+      >li {
+        text-indent: -1.20em;
+        padding-left: 1.20em;
 
-        &.tabs-1 {
-          text-indent: -2.5em;
-          padding-left: 2.5em;
-        }
-
-        &.tabs-2 {
-          text-indent: -3.75em;
-          padding-left: 3.75em;
-        }
-
-        &.tabs-3 {
-          text-indent: -5em;
-          padding-left: 5em;
-        }
-
-        &.tabs-4 {
-          text-indent: -6.25em;
-          padding-left: 6.25em;
-        }
+        @for $i from 1 through 10 {
+          &.tabs-#{$i} {
+            text-indent: -1.20em * ($i + 1);
+            padding-left: 1.20em * ($i + 1);
+          }
+        }        
       }
 
-      span {
+      &#marquee {
+        color: white;
         display: inline;
+
+        > span {
+          @include transition(color 0.4s ease-in-out, background-color 0.4s ease-in-out);
+
+          a {
+            @include animation(fadeIn 0.6s);
+          }
+        }
       }
 
-      .default: {
+      .comment {
+        color: $grey-text;
+      }
+
+      .default {
         color: $white;
       }
 
-      .function {
+      .function, .two, .two a {
         color: $blue;
       }
 
@@ -134,15 +156,20 @@ body {
         color: $light-blue;
       }
 
-      .identifier {
+      .identifier, .five, .five a {
         color: $yellow;
       }
 
-      .reserved, .arg, .comparator, .modifier {
+      .reserved, .arg, .comparator, .modifier, .one, .one a {
         color: $orange;
       }
 
-      .number {
+      .four, .four a {
+        color: $white;
+        background-color: $pink;
+      }
+
+      .number, .three, .three a {
         color: $green;
       }
     }

@@ -8,6 +8,7 @@ var _ = require('lodash');
 var View = Base.CollectionView.extend({
   childView: SegmentView,
   emptyView: EmptyView,
+  tagName: 'li',
   initialize: function() {
     this.collection = this.model.get('segments');
   },
