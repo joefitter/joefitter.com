@@ -1,9 +1,13 @@
+//
+// src/app/index.js
+//
+
 'use strict';
 
-var Base = require('base');
-var app = Base.getInstance();
-var config = require('./config');
+var Apply = require('apply');
+var app = Apply.getInstance();
+var config = require('./config/config');
 require('./modules');
-require('./router');
+require('./helpers/router');
 
 app.start(config);

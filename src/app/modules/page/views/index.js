@@ -1,3 +1,7 @@
+//
+// src/app/modules/page/views/index.js
+//
+
 'use strict';
 
 var Marionette = require('backbone.marionette');

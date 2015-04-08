@@ -4,10 +4,10 @@
 
 'use strict';
 
-var Base = require('base');
+var Apply = require('apply');
 var template = require('../templates/character.hbs');
 
-var View = Base.ItemView.extend({
+var View = Apply.ItemView.extend({
   template: template,
   tagName: 'span',
   initialize: function() {

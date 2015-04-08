@@ -1,3 +1,7 @@
+//
+// src/app/helpers/application.js
+//
+
 'use strict';
 
 var Backbone = require('backbone');

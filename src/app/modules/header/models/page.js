@@ -1,8 +1,12 @@
+//
+// src/app/modules/header/models/page.js
+//
+
 'use strict';
 
-var Base = require('base');
+var Apply = require('apply');
 
-var Model = Base.Model.extend({
+var Model = Apply.Model.extend({
   defaults: {
     title: '',
     location: '/',

@@ -1,10 +1,14 @@
+//
+// src/app/modules/cv/models/line.js
+//
+
 'use strict';
 
-var Base = require('base');
+var Apply = require('apply');
 var prettyPrintJs = require('../helpers/prettyPrintJs');
 var Segments = require('../collections/segments');
 
-var Model = Base.Model.extend({
+var Model = Apply.Model.extend({
   defaults: {
     line: null
   },

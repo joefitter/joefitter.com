@@ -1,3 +1,7 @@
+//
+// src/app/modules/cv/helpers/prettyPrintJs.js
+//
+
 'use strict';
 
 var constants = require('../helpers/constants');
@@ -18,7 +22,7 @@ function loopAndSplit(array, regex, wholeWords, className) {
 }
 
 function splitOnLineComments(array) {
-  return loopAndSplit(array, new RegExp('\/\/.*', 'g'), false, 'comment');
+  return loopAndSplit(array, new RegExp('(?:^|[^:])(\/\/.*)', 'g'), false, 'comment');
 }
 
 function splitOnStrings(array) {

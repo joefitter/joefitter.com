@@ -17,8 +17,10 @@
 $light-blue: #c4e2f2;
 $grey: #282a2c;
 $mid-grey: #32363b;
+$footer-grey: #3c3f42;
 $light-grey: #4b4f53;
 $light-grey-text: #909293;
+$footer-text: #949597;
 $grey-text: #798188;
 $off-black: #131416;
 $white: #ffffff;
@@ -27,6 +29,7 @@ $blue: #5d98b8;
 $orange: #fa9a4b;
 $green: #a1d07b;
 $pink: #ee4f7e;
+$red: #e74c3c;
 
 body {
   background-color: $grey;
@@ -127,15 +130,26 @@ body {
         }        
       }
 
+      &#cv {
+        span:hover {
+          background-color: $mid-grey
+        }
+      }
+
       &#marquee {
-        color: white;
+        color: $white;
         display: inline;
 
-        > span {
+        span {
           @include transition(color 0.4s ease-in-out, background-color 0.4s ease-in-out);
 
           a {
+            text-decoration: none;
             @include animation(fadeIn 0.6s);
+
+            &:hover {
+              text-decoration: underline;
+            }
           }
         }
       }
@@ -148,7 +162,7 @@ body {
         color: $white;
       }
 
-      .function, .two, .two a {
+      .function {
         color: $blue;
       }
 
@@ -156,7 +170,7 @@ body {
         color: $light-blue;
       }
 
-      .identifier, .five, .five a {
+      .identifier {
         color: $yellow;
       }
 
@@ -164,14 +178,46 @@ body {
         color: $orange;
       }
 
-      .four, .four a {
+      .two {
         color: $white;
         background-color: $pink;
       }
 
-      .number, .three, .three a {
+      .number {
         color: $green;
       }
+    }
+  }
+
+  footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 1.5em;
+    background-color: $footer-grey;
+    color: $footer-text;
+
+    #credits {
+      float: right;
+
+      p {
+        font-size: 0.8em;
+        margin: 0.2em 0;
+
+        .heart {
+          color: $red;
+        }
+
+        .name {
+          font-family: $droid-sans;
+        }
+      }
+    }
+
+    #info {
+      float: left;
+      font-size: 0.8em;
+      margin: 0.2em 0;
     }
   }
 }

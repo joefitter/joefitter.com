@@ -39,7 +39,7 @@
   },
   "aliasify": {
     "aliases": {
-      "base": "./src/app/base"
+      "apply": "./src/app/helpers/apply"
     }
   }
 }

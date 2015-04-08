@@ -84,7 +84,7 @@ joeFitter.employmentHistory = [
     company: 'Joe Fitter Development',
     from: new Date('Nov 2010'),
     to: new Date(), // current
-    details: ''
+    details: 'I offer on-going development expertise to a number of companies on a freelance basis. These include iCrossing UK - since leaving employment with iCrossing I have developed a bespoke mobile/desktop carousel framework for M&S Bank Articles. This currently sits within their website and allows web designers to code one page of html to suit multiple devices. An example of a finished article using the framework can be seen <a href="http://bank.marksandspencer.com/explore/articles/how-to-build-a-capsule-wardrobe/ar0028/" target="_blank">Here</a>. I also take occasional jobs for East Web, the most notible of which is a bespoke online-entry, payment, ticket purchase and back-office fulfilment system for Brighton & Hove Business Awards 2013. The same system was used for Sussex Business Awards 2013, and then again for Lewes Business Awards and the Brighton & Hove Business Awards in 2014. I have also helped East Web with multiple WordPress and Magento plugins, custom theme features and other ad hoc tasks which fall outside the skill-set of their in-house web developer. Previously I worked for Rebob/Yellow60 on a freelance basis between November 2010 and June 2013 where I developed around 40 websites ranging from static html micro-sites to large content-managed ecommerce sites.'
   }
 ];
 

@@ -1,9 +1,13 @@
+//
+// src/app/modules/page/controllers/index.js
+//
+
 'use strict';
 
 var Marionette = require('backbone.marionette');
 var View = require('../views');
 var Model = require('../models');
-var app = require('base').getInstance();
+var app = require('apply').getInstance();
 
 var Controller = Marionette.Object.extend({
   initialize: function(config) {

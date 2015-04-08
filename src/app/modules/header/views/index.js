@@ -1,11 +1,15 @@
+//
+// src/app/modules/header/views/index.js
+//
+
 'use strict';
 
-var Base = require('base');
+var Apply = require('apply');
 var template = require('../templates/index.hbs');
 var GhView = require('./ghView');
 var NavView = require('./nav');
 
-var View = Base.LayoutView.extend({
+var View = Apply.LayoutView.extend({
   template: template,
 
   regions: {

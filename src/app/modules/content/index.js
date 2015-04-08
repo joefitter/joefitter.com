@@ -1,12 +1,16 @@
+//
+// src/app/modules/content/index.js
+//
+
 'use strict';
 
-var Base = require('base');
-var app = Base.getInstance();
-var channel = Base.Radio.channel('content');
+var Apply = require('apply');
+var app = Apply.getInstance();
+var channel = Apply.Radio.channel('content');
 var Controller = require('./controllers');
 var _ = require('lodash');
 
-var ContentModule = Base.Module.extend({
+var ContentModule = Apply.Module.extend({
 
   onBeforeStart: function() {
     channel.comply({

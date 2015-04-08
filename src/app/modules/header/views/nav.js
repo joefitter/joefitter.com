@@ -1,10 +1,14 @@
+//
+// src/app/modules/header/views/nav.js
+//
+
 'use strict';
 
-var Base = require('base');
+var Apply = require('apply');
 var PageView = require('./page');
 var template = require('../templates/nav.hbs');
 
-var View = Base.CompositeView.extend({
+var View = Apply.CompositeView.extend({
   template: template,
   childView: PageView,
   childViewContainer: 'ul'

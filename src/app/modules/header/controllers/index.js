@@ -1,13 +1,17 @@
+//
+// src/app/modules/header/controllers/index.js
+//
+
 'use strict';
 
-var Base = require('base');
-var app = Base.getInstance();
+var Apply = require('apply');
+var app = Apply.getInstance();
 var Collection = require('../collections/pages');
 var Model = require('../models');
 var View = require('../views');
 var _ = require('lodash');
 
-var Controller = Base.Object.extend({
+var Controller = Apply.Object.extend({
   initialize: function(config) {
     this.config = config;
     this.collection = new Collection(this.config.nav.pages);
@@ -36,7 +40,7 @@ var Controller = Base.Object.extend({
   },
 
   _setupRegions: function() {
-    var region = new Base.Region({
+    var region = new Apply.Region({
       el: this.config.el
     });
 

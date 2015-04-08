@@ -1,10 +1,14 @@
+//
+// src/app/modules/header/index.js
+//
+
 'use strict';
 
-var Base = require('base');
+var Apply = require('apply');
 var Controller = require('./controllers');
-var channel = Base.Radio.channel('header');
+var channel = Apply.Radio.channel('header');
 
-var HeaderModule = Base.Module.extend({
+var HeaderModule = Apply.Module.extend({
   startWithParent: false,
 
   onStart: function(config) {
@@ -13,10 +17,6 @@ var HeaderModule = Base.Module.extend({
     channel.comply({
       routeChanged: this._controller.onRouteChanged
     }, this._controller)
-  },
-
-  onRouteChanged: function() {
-    console.log('blah')
   },
 
   onBeforeStop: function() {

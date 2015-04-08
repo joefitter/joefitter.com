@@ -1,10 +1,14 @@
+//
+// src/app/modules/header/views/page.js
+//
+
 'use strict';
 
-var Base = require('base');
+var Apply = require('apply');
 var template = require('../templates/page.hbs');
-var channel = Base.Radio.channel('main');
+var channel = Apply.Radio.channel('main');
 
-var PageView = Base.ItemView.extend({
+var PageView = Apply.ItemView.extend({
   template: template,
 
   tagName: 'li',

@@ -1,3 +1,7 @@
+//
+// src/app/config/config.js
+//
+
 'use strict';
 
 module.exports = {
@@ -5,7 +9,7 @@ module.exports = {
     el: '#app'
   },
   header: {
-    el: '#header',
+    el: 'header',
     nav: {
       settings: {
         title: '{joeFitter}',
@@ -30,5 +34,8 @@ module.exports = {
   },
   content: {
     el: '#content'
+  },
+  footer: {
+    el: 'footer'
   }
 }

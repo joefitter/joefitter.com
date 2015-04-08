@@ -1,5 +1,5 @@
 //
-// src/app/modules/cv/models/segment.js
+// src/app/modules/footer/models/index.js
 //
 
 'use strict';
@@ -8,8 +8,8 @@ var Apply = require('apply');
 
 var Model = Apply.Model.extend({
   defaults: {
-    item: null,
-    type: 'default'
+    line: 0,
+    col: 0
   }
 });
 

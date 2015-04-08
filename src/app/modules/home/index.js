@@ -1,9 +1,13 @@
+//
+// src/app/modules/home/index.js
+//
+
 'use strict';
 
-var Base = require('base');
+var Apply = require('apply');
 var Controller = require('./controllers');
 
-var HomeModule = Base.Module.extend({
+var HomeModule = Apply.Module.extend({
   startWithParent: false,
   onStart: function(config) {
     this._controller = new Controller(config);

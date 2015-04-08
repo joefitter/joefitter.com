@@ -4,9 +4,9 @@
 
 'use strict';
 
-var Base = require('base');
+var Apply = require('apply');
 
-var Model = Base.Model.extend({
+var Model = Apply.Model.extend({
   defaults: {
     item: '',
     className: null

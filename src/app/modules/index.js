@@ -1,6 +1,10 @@
+//
+// src/app/modules/index.js
+//
+
 'use strict';
 
-var app = require('base').getInstance();
+var app = require('apply').getInstance();
 
 app.module('page', {
   moduleClass: require('./page')

@@ -4,11 +4,11 @@
 
 'use strict';
 
-var Base = require('base');
+var Apply = require('apply');
 var CharacterView = require('./character');
 var template = require('../templates/index.hbs');
 
-var View = Base.CompositeView.extend({
+var View = Apply.CompositeView.extend({
   template: template,
   childView: CharacterView,
   childViewContainer: 'p',

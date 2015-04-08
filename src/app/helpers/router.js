@@ -1,9 +1,13 @@
+//
+// src/app/helpers/router.js
+//
+
 'use strict';
 
-var Base = require('base');
-var channel = Base.Radio.channel('main');
+var Apply = require('apply');
+var channel = Apply.Radio.channel('main');
 
-var AppRouter = Base.Router.extend({
+var AppRouter = Apply.Router.extend({
   routes: {
     '(:id)': 'getContent'
   }

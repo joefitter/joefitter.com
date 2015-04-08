@@ -16,36 +16,22 @@ module.exports = {
   {
     opening: '{',
     closing: '}'
-  },
-  {
-    opening: '\'',
-    closing: '\''
-  },
-  {
-    opening: '"',
-    closing: '"'
   }],
   highlight: {
     one: [
       '{joeFitter}',
+      'JavaScript Developer',
+      'Brighton UK',
+      'Vauxhall, London',
       'rich',
-      'LinkedIn'
+      'performant',
+      'GitHub',
+      'Stack Overflow',
+      'LinkedIn',
+      'Here'
     ],
     two: [
-      'JavaScript Developer',
-      'performant',
-      'here'
-    ],
-    three: [
-      'Brighton UK',
-      'GitHub',
-    ],
-    four: [
       ' pebble {code} '
-    ],
-    five : [
-      'Vauxhall, London',
-      'Stack Overflow'
     ]
   }
 };

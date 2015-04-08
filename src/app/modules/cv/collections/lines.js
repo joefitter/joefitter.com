@@ -1,9 +1,13 @@
+//
+// src/app/modules/cv/collections/lines.js
+//
+
 'use strict';
 
-var Base = require('base');
+var Apply = require('apply');
 var Model = require('../models/line');
 
-var Collection = Base.Collection.extend({
+var Collection = Apply.Collection.extend({
   model: Model
 });
 

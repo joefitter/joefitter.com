@@ -4,25 +4,34 @@
 
 'use strict';
 
-var Base = require('base');
-var app = Base.getInstance();
+var Apply = require('apply');
+var app = Apply.getInstance();
 var Collection = require('../collections');
 var View = require('../views');
 var formatting = require('../constants/formatting');
 var _ = require('lodash');
 var fs = require('fs');
 var text = fs.readFileSync(__dirname + '/../constants/index.txt', 'utf8');
+var mainChannel = Apply.Radio.channel('main');
 
-var Controller = Base.Object.extend({
+var Controller = Apply.Object.extend({
   initialize: function(config) {
     this.config = config;
     this.text = [];
+
+    this.info = {
+      line: 1,
+      col: 1
+    };
+
+    // grab links whole.
     var arr = text.split(/(<a[^>]*>[^<]*<\/a>)/g);
 
     _.each(arr, function(item) {
       if (item.match(/(<a[^>]*>[^<]*<\/a>)/g)) {
         return this.text.push(item);
       }
+      // split everything else
       this.text.push(item.match(/[\s\S]/g));
     }, this);
 
@@ -51,6 +60,15 @@ var Controller = Base.Object.extend({
     var skip = false;
     var delay = 60 //ms
 
+    if (item === '\n') {
+      this.info.line ++;
+      this.info.col = 1;
+    } else {
+      this.info.col ++;
+    }
+
+    mainChannel.command('updateInfo', this.info);
+
     if (this.text[i] === '\n' && this.text[i + 1] === '\n') {
       delay = 600;
     } else if (this.text[i - 1] && this.text[i - 1].indexOf('<a href') !== -1) {
@@ -58,7 +76,7 @@ var Controller = Base.Object.extend({
     }
 
     closing = closing || [];
-    _.delay(_.bind(function() {
+    this._timeout = _.delay(_.bind(function() {
 
       if (closing[closing.length - 1] === item) {
         closing.pop();
@@ -69,12 +87,14 @@ var Controller = Base.Object.extend({
         this.collection.add({
           item: item
         }, {
+          // if we have pre-printed closing parenthesis, insert character before these.
           at: closing.length ? this.collection.length - closing.length : this.collection.length
         });
       }
 
       _.each(formatting.enclosing, function(encl) {
         if (encl.opening === item) {
+          // pre-add closing symbol if opening detected.
           this.collection.add({
             item: encl.closing
           }, {
@@ -120,6 +140,7 @@ var Controller = Base.Object.extend({
   },
 
   onDestroy: function() {
+    clearTimeout(this._timeout);
     this._hide();
   }
 

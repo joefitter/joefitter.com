@@ -1,9 +1,13 @@
+//
+// src/app/modules/cv/index.js
+//
+
 'use strict';
 
-var Base = require('base');
+var Apply = require('apply');
 var Controller = require('./controllers');
 
-var CVModule = Base.Module.extend({
+var CVModule = Apply.Module.extend({
   startWithParent: false,
 
   onStart: function(config) {

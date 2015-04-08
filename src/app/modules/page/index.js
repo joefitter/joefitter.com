@@ -1,10 +1,14 @@
+//
+// src/app/modules/page/index.js
+//
+
 'use strict';
 
-var Base = require('base');
+var Apply = require('apply');
 var Controller = require('./controllers');
 var _ = require('lodash');
 
-var BaseModule = Base.Module.extend({
+var BaseModule = Apply.Module.extend({
   onStart: function(config) {
     this.config = config;
     this._controller = new Controller(this.config.page);
