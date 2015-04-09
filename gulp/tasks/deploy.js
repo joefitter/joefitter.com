@@ -14,7 +14,7 @@ gulp.task('deploy', function() {
     log: gutil.log
   });
 
-  return gulp.src(config.src, {buffer: false})
+  return gulp.src(config.src, {buffer: false, dot: true})
     .pipe(conn.newer(config.dest))
     .pipe(conn.dest(config.dest));
 });

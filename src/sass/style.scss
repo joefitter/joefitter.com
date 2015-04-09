@@ -1,7 +1,7 @@
 @import 'includes/_fonts';
-@import "compass/css3/border-radius";
-@import "compass/css3/animation";
-@import "compass/css3/transition";
+@import 'compass/css3/border-radius';
+@import 'compass/css3/animation';
+@import 'compass/css3/transition';
 
 @include keyframes(fadeInOut) {
   0%   { opacity: 1; }
@@ -168,6 +168,15 @@ body {
 
       .string {
         color: $light-blue;
+
+        a {
+          color: $orange;
+          text-decoration: none;
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
       }
 
       .identifier {
