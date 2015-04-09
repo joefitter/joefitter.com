@@ -230,3 +230,11 @@ body {
     }
   }
 }
+
+@media print {
+  body {
+    header, footer {
+      display: none;
+    }
+  }
+}
