@@ -39,5 +39,9 @@ module.exports = {
   fonts: {
     src: src + '/fonts/**/*',
     dest: dest + '/fonts'
+  },
+  htaccess: {
+    src: src + '/.htaccess',
+    dest: dest
   }
 };

@@ -26,7 +26,7 @@ var BaseModule = Apply.Module.extend({
   },
 
   onBeforeStop: function() {
-    console.log('module stopped');
+    this._controller.destroy();
   }
 });
 

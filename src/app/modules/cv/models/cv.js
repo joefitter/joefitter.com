@@ -19,13 +19,13 @@ joeFitter.skills = {
     javaScript: {
       native: 'advanced \'vanilla\' JavaScript ~ 4.5 years',
       frameworks: {
-        backbone: 'advanced backbone development on large modular web applications, vast experience using Backbone.Marionette, Backbone.Radio, Backbone.Stickit, Backbone.Cocktail ~ 3 years',
+        backbone: 'advanced Backbone development on large modular web applications, vast experience using Backbone.Marionette, Backbone.Radio, Backbone.Stickit, Backbone.Cocktail ~ 3 years',
         jQuery: 'enterprise level optimised jQuery ~ 4.5 years',
         angular: 'smaller scale prototype/POC development ~ 1.5 years',
         react: 'experience creating a few single page applications, including using FLUX architecture ~ 6 months'
       },
       tooling: {
-        taskRunners: ['gulp', 'grunt'], // and most major plugins
+        taskRunners: ['gulp', 'grunt'],
         modularity: {
           amd: 'RequireJS ~ 2.5 years',
           commonJS: 'Browserify ~ 9 months'
@@ -34,21 +34,23 @@ joeFitter.skills = {
         linting: ['jscs', 'jsHint'],
         templating: ['handlebars', 'mustache', 'underscore'],
       },
-      dataVisualisation: ['d3.js', 'c3.js', 'highcharts', 'three.js']
+      dataVisualisation: ['d3.js', 'c3.js', 'highcharts', 'three.js'],
+      localisation: 'i18next.js'
     },
     layout: {
       html: 'Cross-browser, standards-compliant HTML5 ~ 5 years',
       css: [
         'Sass/Compass ~ 2 years',
         'CSS3 including responsive and adaptive layouts ~ 5 years',
-        'Bootstrap/Foundation for prototyping/POC ~ 3 years'
+        'Bootstrap/Foundation for prototyping/POC ~ 3 years',
+        'Less ~ 1 year'
       ]
     }
   },
   serverSide: {
     nodeJS: 'Express and Hapi application frameworks. Experience with RESTful HATEOAS api development',
     php5: {
-      language: 'Object orientated & procedural ~ 3 years',
+      language: 'Object orientated ~ 3 years',
       frameworks: ['Smarty', 'Zend'],
       web: [
         'WordPress custom theme/plugin development ~ 3 years',
@@ -60,7 +62,14 @@ joeFitter.skills = {
     'C#': 'Experience working with a persistant C# engine through a signalR connection'
   },
   general: {
-    agile: 'Scrum - 3 years. Certified ScrumMaster with radtac'
+    agile: 'Scrum - 3 years. Certified ScrumMaster with radtac',
+    cloudComputing: 'Amazon Web Services EC2, S3, SNS',
+    sourceControl: 'GitLab, GitHub, Mercurial',
+    search: 'Lucene, Solr, ElasticSearch',
+    apiIntgration: ['Twitter', 'Facebook', 'LinkedIn', 'Twilio', 'Google Maps', 'AdWords'],
+    adwordsScripts: 'Bespoke management of campaign budgets through AdWords Scripts',
+    userExperience: 'Broad knowledge of UX principles and experience running user testing sessions',
+    softwareAndServices: ['Sublime Text 3', 'zsh', 'VirtualBox', 'Eclipse', 'Firebase', 'Heroku', 'Travis', 'Jira', 'Confluence', 'testrail', 'TeamCity', 'Greenhopper', 'Bamboo', 'FishEye', 'Hudson', 'Vagrant', 'Ansible', 'Liquibase', 'PuTTY', 'Linux server admin', 'Mac/Linux/Windows development', 'PhotoShop', 'GIMP', 'Illustrator', 'InDesign', 'and heaps more...']
   }
 };
 
@@ -70,14 +79,14 @@ joeFitter.employmentHistory = [
     company: 'pebble {code}',
     from: new Date('June 2014'),
     to: new Date(), // current
-    details: 'Since starting at pebble {code} I have been working on an online Bingo platform for one of our clients, Bede Gaming. Within three months of joining I took over leadership of the 8 strong agile team and have since overseen many architectural enhancements, including components as private NPM modules, each individually testable; the progression from RequireJS to Browserify, Grunt to Gulp, global Marionette application events to Backbone.Radio and the development of an application framework built on top of Backbone.Marionette. We are a distributed team located in London, Brighton, Newcastle and Sofia, Bulgaria'
+    details: 'Since starting at pebble {code} I have been working on an online Bingo platform for one of our clients, Bede Gaming. Within three months of joining I took over leadership of the 8 strong agile team and have since overseen many architectural enhancements. These include components as private NPM modules, each individually testable; the progression from RequireJS to Browserify, Grunt to Gulp, global Marionette application events to Backbone.Radio and the development of an application framework built on top of Backbone.Marionette. We are a distributed team located in London, Brighton, Newcastle and Sofia, Bulgaria. My day to day duties include leading daily Scrum meetings, grooming, retrospective, spring planning and all other Scrum ceremonies; coordinating releases - we have moved from a monthly release to a near continuous delivery cycle; managing our deployments to development and QA environments and communicating with the other teams across the company; investigating and undertaking architectural enhancements by keeping up to date with the ever progressing JavaScript community; mentoring junior developers and reviewing/merging all pull requests. Since being at Pebble I have taken part in two hack days, the first where I worked with a team of C# developers to create a GitHub dashboard for the company showing commit leaderboards, live commits, lines of code changes and consecutive days, this was build with Facebook React.js and D3 for the dava visualisations; the second was an individual 8 hour hack where I built a 3D globe in three.js and plotted realtime earthquakes using a data source from Firebase. <a href="https://twitter.com/pebblecode/status/563667312474337281" target="_blank">Tweet</a> from Pebble Code.'
   },
   {
     position: 'Front End Application Developer',
     company: 'iCrossing UK',
     from: new Date('May 2012'),
     to: new Date('June 2014'),
-    details: 'As the sole Front End Appication Developer at iCrossing, I was responsible for the user interface of every application we worked on. Shortly after joining I built a complete Paid Search ad-monitoring application from the ground up – this was intended as a pet project for my first few months but has since been deployed across their offices in Europe and the US. After this I spent the majority of my time working on an all-in-one SEO application. When I joined it was written using Apache Wicket to Backbone, created many interfaces including interactive visualisations, developed many small ad-hoc applications, rebuilt the company blog, and developed many projects for clients such as a parallax jQuery plugin for M&S and a dashboard for Sainsbury’s Bank. Recently I have built responsive content managed websites for 2 local charities - Forward Facing and Impetus - as part of the local Skills Exchange project. I regularly assist the creative team by providing advice and assistance on many client development projects and offer training in HTML, CSS and JavaScript'
+    details: 'As the sole Front End Appication Developer at iCrossing, I was responsible for the user interface of every application we worked on. Shortly after joining I built a complete Paid Search ad-monitoring application from the ground up – this was intended as a pet project for my first few months but has since been deployed across their offices in Europe and the US. Since then I converted their all-in-one SEO application from Apache Wicket to a RESTful Backbone interface which communicated with a Java Spring API; I created many one-off interfaces including interactive visualisations, developed many small ad-hoc applications, rebuilt the company blog, and developed many projects for clients such as a parallax jQuery plugin for M&S and a client dashboard for Sainsbury’s Bank. I built responsive content managed websites for 2 local charities - <a href="http://www.forwardfacing.org.uk/" target="_blank">Forward Facing</a> and <a href="http://www.bh-impetus.org/" target="_blank">Impetus</a> - as part of a local Skills Exchange project. I also regularly assisted the creative team by providing advice and assistance on many client development projects and offered training in HTML, CSS and JavaScript.'
   },
   {
     position: 'Freelance Web Application Developer',

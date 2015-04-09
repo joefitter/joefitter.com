@@ -8,6 +8,7 @@ var Apply = require('apply');
 var template = require('../templates/index.hbs');
 var GhView = require('./ghView');
 var NavView = require('./nav');
+var _ = require('lodash');
 
 var View = Apply.LayoutView.extend({
   template: template,
@@ -37,10 +38,6 @@ var View = Apply.LayoutView.extend({
       model: this.model
     });
     this.nav.show(navView);
-  },
-
-  onDestroy: function() {
-    this._hide();
   }
 });
 

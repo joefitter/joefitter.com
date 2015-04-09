@@ -4,16 +4,16 @@
 
 'use strict';
 
-var Marionette = require('backbone.marionette');
+var Apply = require('apply');
 var View = require('../views');
 var Model = require('../models');
-var app = require('apply').getInstance();
+var app = Apply.getInstance();
 
-var Controller = Marionette.Object.extend({
+var Controller = Apply.Object.extend({
   initialize: function(config) {
     this.config = config;
     this.model = new Model();
-    var region = new Marionette.Region({
+    var region = new Apply.Region({
       el: this.config.el
     });
 
