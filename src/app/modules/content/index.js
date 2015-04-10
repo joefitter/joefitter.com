@@ -5,7 +5,6 @@
 'use strict';
 
 var Apply = require('apply');
-var app = Apply.getInstance();
 var channel = Apply.Radio.channel('content');
 var Controller = require('./controllers');
 var _ = require('lodash');
@@ -19,7 +18,7 @@ var ContentModule = Apply.Module.extend({
   },
 
   onStart: function(config) {
-    this.config = config.content
+    this.config = config.content;
     this._controller = new Controller(this.config);
   },
 
@@ -27,7 +26,7 @@ var ContentModule = Apply.Module.extend({
     page = page || 'home';
     _.each(this.submodules, function(submodule) {
       submodule.stop();
-    })
+    });
     if (_.keys(this.submodules).indexOf(page) !== -1) {
       this.submodules[page].start(this.config);
     }

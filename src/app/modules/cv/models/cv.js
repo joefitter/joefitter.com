@@ -1,5 +1,5 @@
 //
-// src/app/modules/cv/models/cv
+// src/app/modules/cv/models/cv.js
 //
 
 'use strict';
@@ -12,6 +12,7 @@ function JavaScriptDeveloper(name, number, email) {
 
 var joeFitter = new JavaScriptDeveloper('Joe Fitter', '0' + 7791225443, 'hello@joefitter.com');
 
+//jscs:disable maximumLineLength
 joeFitter.about = 'I am not a 9-5 developer. I have a passion for JavaScript that extends beyond career. I always code by hand. I use Sublime Text 3. A lot. I never fall in love with code. I prefer removing code to writing it. I get excited by RESTful API’s. I’m a big fan of Backbone.Marionette. I prefer JSON to XML, Gulp to Grunt, Browserify to RequireJS, NPM to Bower, Sass to Less and Mocha to Jasmine. I code quickly. And accurately. I learn as fast as I code. I turn designs into pixel-perfect cross-browser and semantic HTML/CSS. I have a firm grasp of UX principles. And how to apply them. Oh, and I have a pretty good eye for design too.';
 
 joeFitter.skills = {
@@ -30,7 +31,7 @@ joeFitter.skills = {
           amd: 'RequireJS ~ 2.5 years',
           commonJS: 'Browserify ~ 9 months'
         },
-        testing: ['mocha', 'expectjs', 'sinonjs', 'karma', 'selenium', 'phantomJS'],
+        testing: ['mocha', 'expectjs', 'sinonjs', 'jasmine', 'karma', 'selenium', 'phantomJS'],
         linting: ['jscs', 'jsHint'],
         templating: ['handlebars', 'mustache', 'underscore'],
       },
@@ -96,5 +97,6 @@ joeFitter.employmentHistory = [
     details: 'I offer on-going development expertise to a number of companies on a freelance basis. These include iCrossing UK - since leaving employment with iCrossing I have developed a bespoke mobile/desktop carousel framework for M&S Bank Articles. This currently sits within their website and allows web designers to code one page of html to suit multiple devices. An example of a finished article using the framework can be seen <a href="http://bank.marksandspencer.com/explore/articles/how-to-build-a-capsule-wardrobe/ar0028/" target="_blank">Here</a>. I also take occasional jobs for East Web, the most notible of which is a bespoke online-entry, payment, ticket purchase and back-office fulfilment system for Brighton & Hove Business Awards 2013. The same system was used for Sussex Business Awards 2013, and then again for Lewes Business Awards and the Brighton & Hove Business Awards in 2014. I have also helped East Web with multiple WordPress and Magento plugins, custom theme features and other ad hoc tasks which fall outside the skill-set of their in-house web developer. Previously I worked for Rebob/Yellow60 on a freelance basis between November 2010 and June 2013 where I developed around 40 websites ranging from static html micro-sites to large content-managed ecommerce sites.'
   }
 ];
+//jscs:enable maximumLineLength
 
 module.exports = joeFitter;

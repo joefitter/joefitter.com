@@ -2,7 +2,7 @@
 
 var nodemon = require('gulp-nodemon');
 var gulp = require('gulp');
-var config = require('../config').nodemon
+var config = require('../config').nodemon;
 
 gulp.task('nodemon', function(cb) {
   var called = false;

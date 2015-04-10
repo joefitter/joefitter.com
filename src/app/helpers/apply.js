@@ -9,7 +9,7 @@ var Backbone = require('backbone');
 Backbone.$ = $;
 require('backbone.radio');
 require('backbone.stickit');
-var Marionette = require('backbone.marionette');
+require('backbone.marionette');
 var _ = require('lodash');
 var Apply = {};
 _.extend(Apply, Backbone);

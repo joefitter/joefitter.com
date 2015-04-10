@@ -25,7 +25,7 @@ var View = Apply.LayoutView.extend({
       model: this.model
     });
 
-    this.getRegion('info').show(infoView)
+    this.getRegion('info').show(infoView);
   },
   template: template,
   className: 'wrapper'

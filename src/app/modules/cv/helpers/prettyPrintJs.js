@@ -7,9 +7,81 @@
 var constants = require('../helpers/constants');
 var _ = require('lodash');
 
+function reEscape(str) {
+  return str.replace(/([\.\$\^\{\[\(\|\)\*\+\?\\]+)/g, function(a) {
+    return '\\' + a;
+  });
+}
+
+function splitOnMultipleSymbols(input, array, type) {
+  var result;
+  var re = '([';
+  _.each(array, function(item, index) {
+    re += reEscape(item);
+    if (index < array.length - 1) {
+      re += '|';
+    }
+  });
+  re += '])+';
+
+  re = new RegExp(re, 'g');
+
+  result = input.split(re);
+
+  return _.without(_.map(result, function(item) {
+    if (array.indexOf(item) === -1) {
+      return item;
+    }
+    return {
+      item: item,
+      type: type
+    };
+  }), '');
+
+}
+
+function splitOnMultiple(input, array, wholeWords, type) {
+  if (!array) {
+    return input;
+  }
+
+  var result;
+  var re = '(';
+
+  _.each(array, function(item, index) {
+    if (wholeWords) {
+      re += '\\b';
+    }
+    re += reEscape(item);
+    if (wholeWords) {
+      re += '\\b';
+    }
+
+    if (index < array.length - 1) {
+      re += '|';
+    }
+  });
+
+  re += ')';
+
+  re = new RegExp(re, 'g');
+
+  result = input.split(re);
+
+  return _.without(_.map(result, function(item) {
+    if (array.indexOf(item) === -1) {
+      return item;
+    }
+    return {
+      item: item,
+      type: type
+    };
+  }), '');
+}
+
 function loopAndSplit(array, regex, wholeWords, className) {
   var result = [];
-  _.each(array, function(item, index) {
+  _.each(array, function(item) {
     if (typeof item === 'object') {
       result.push(item);
       return;
@@ -82,12 +154,6 @@ function splitOnArguments(array) {
   return store;
 }
 
-function reEscape(str) {
-  return str.replace(/([\.\$\^\{\[\(\|\)\*\+\?\\]+)/g, function(a) {
-    return '\\' + a;
-  });
-}
-
 function splitOnCompartors(array) {
   var store = [];
   _.each(array, function(item) {
@@ -122,72 +188,6 @@ function splitOnModifiers(array) {
   });
 
   return store;
-}
-
-function splitOnMultipleSymbols(input, array, type) {
-  var result;
-  var re = '([';
-  _.each(array, function(item, index) {
-    re += reEscape(item);
-    if (index < array.length - 1) {
-      re += '|';
-    }
-  });
-  re += '])+';
-
-  re = new RegExp(re, 'g');
-
-  result = input.split(re);
-
-  return _.without(_.map(result, function(item) {
-    if (array.indexOf(item) === -1) {
-      return item;
-    }
-    return {
-      item: item,
-      type: type
-    };
-  }), '');
-
-}
-
-function splitOnMultiple(input, array, wholeWords, type) {
-  if (!array) {
-    return input;
-  }
-
-  var result;
-  var re = '(';
-
-  _.each(array, function(item, index) {
-    if (wholeWords) {
-      re += '\\b';
-    }
-    re += reEscape(item);
-    if (wholeWords) {
-      re += '\\b';
-    }
-
-    if (index < array.length - 1) {
-      re += '|';
-    }
-  });
-
-  re += ')';
-
-  re = new RegExp(re, 'g');
-
-  result = input.split(re);
-
-  return _.without(_.map(result, function(item) {
-    if (array.indexOf(item) === -1) {
-      return item;
-    }
-    return {
-      item: item,
-      type: type
-    };
-  }), '');
 }
 
 function mapDefaults(array) {

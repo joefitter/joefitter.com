@@ -6,7 +6,6 @@
 
 var Apply = require('apply');
 var template = require('../templates/info.hbs');
-var _ = require('lodash');
 
 var View = Apply.ItemView.extend({
   template: template,

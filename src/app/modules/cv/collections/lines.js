@@ -11,4 +11,4 @@ var Collection = Apply.Collection.extend({
   model: Model
 });
 
-module.exports = Collection
+module.exports = Collection;

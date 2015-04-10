@@ -8,7 +8,6 @@ var Apply = require('apply');
 var template = require('../templates/index.hbs');
 var GhView = require('./ghView');
 var NavView = require('./nav');
-var _ = require('lodash');
 
 var View = Apply.LayoutView.extend({
   template: template,

@@ -25,6 +25,6 @@ channel.comply({
       trigger: true
     });
   }
-}, appRouter)
+}, appRouter);
 
 module.exports = appRouter;

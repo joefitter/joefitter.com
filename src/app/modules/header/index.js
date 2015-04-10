@@ -16,7 +16,7 @@ var HeaderModule = Apply.Module.extend({
 
     channel.comply({
       routeChanged: this._controller.onRouteChanged
-    }, this._controller)
+    }, this._controller);
   },
 
   onBeforeStop: function() {

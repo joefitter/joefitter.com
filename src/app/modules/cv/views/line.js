@@ -13,7 +13,7 @@ var View = Apply.CollectionView.extend({
   childView: SegmentView,
   emptyView: EmptyView,
   tagName: 'li',
-  
+
   childEvents: {
     mouseenter: 'childViewHovered'
   },

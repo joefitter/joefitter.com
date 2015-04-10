@@ -58,7 +58,7 @@ var Controller = Apply.Object.extend({
   startCursor: function(i, closing) {
     var item = this.text[i];
     var skip = false;
-    var delay = 60 //ms
+    var delay = 60; //ms
 
     if (item === '\n') {
       this.info.line ++;

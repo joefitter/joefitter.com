@@ -9,6 +9,7 @@ var source = require('vinyl-source-stream');
 var buffer = require('vinyl-buffer');
 var browserify = require('browserify');
 var watchify = require('watchify');
+var uglify = require('gulp-uglify');
 var browserSync = require('browser-sync');
 var config = require('../config').browserify;
 
@@ -20,18 +21,19 @@ bundler.transform('brfs');
 
 bundler.add(config.src);
 
-bundler.on('update', bundle);
-bundler.on('log', gutil.log);
-
 function bundle() {
   return bundler.bundle()
     .on('error', gutil.log.bind(gutil, 'Browserify Error'))
     .pipe(source(config.exports))
     .pipe(buffer())
     .pipe(sourcemaps.init({loadMaps: true}))
+    .pipe(uglify())
     .pipe(sourcemaps.write('./'))
     .pipe(gulp.dest(config.dest))
     .pipe(browserSync.reload({stream: true}));
 }
 
-gulp.task('browserify', bundle)
+bundler.on('update', bundle);
+bundler.on('log', gutil.log);
+
+gulp.task('browserify', bundle);

@@ -5,7 +5,7 @@
 'use strict';
 
 var Backbone = require('backbone');
-var Radio = require('backbone.radio')
+var Radio = require('backbone.radio');
 var channel = Radio.channel('main');
 var _ = require('lodash');
 

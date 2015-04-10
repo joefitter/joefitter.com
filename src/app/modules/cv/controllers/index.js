@@ -5,7 +5,6 @@
 'use strict';
 
 var Apply = require('apply');
-var $ = Apply.$;
 var _ = require('lodash');
 var app = Apply.getInstance();
 var View = require('../views');

@@ -10,7 +10,9 @@ module.exports = {
   },
   compass: {
     src: src + '/sass/**/*.scss',
+    //jscs:disable requireCamelCaseOrUpperCaseIdentifiers
     config_file: './config.rb',
+    //jscs:enable requireCamelCaseOrUpperCaseIdentifiers
     css: dest + '/css',
     sass: src + '/sass'
   },
@@ -21,7 +23,7 @@ module.exports = {
   browserify: {
     src: src + '/app/index.js',
     dest: dest + '/js',
-    exports: 'app.js'
+    exports: 'app.js',
   },
   images: {
     src: src + '/img/**',
@@ -43,5 +45,12 @@ module.exports = {
   htaccess: {
     src: src + '/.htaccess',
     dest: dest
+  },
+  lint: {
+    src: [
+      src + '/app/**/*.js',
+      './gulp/**/*.js',
+      './server/**/*.js'
+    ]
   }
 };
