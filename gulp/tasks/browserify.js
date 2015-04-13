@@ -2,7 +2,6 @@
 
 var gulp = require('gulp');
 var gutil = require('gulp-util');
-var aliasify = require('aliasify');
 var handlebars = require('browserify-handlebars');
 var sourcemaps = require('gulp-sourcemaps');
 var source = require('vinyl-source-stream');
@@ -15,7 +14,6 @@ var config = require('../config').browserify;
 
 var bundler = watchify(browserify(watchify.args));
 
-bundler.transform({global: true}, aliasify);
 bundler.transform(handlebars);
 bundler.transform('brfs');
 
