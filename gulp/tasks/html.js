@@ -1,11 +1,13 @@
 'use strict';
 
-var gulp = require('gulp');
-var config = require('../config').html;
-var browserSync = require('browser-sync');
+import gulp from 'gulp';
+import { html as config } from '../config';
+import plumber from 'gulp-plumber';
+import { reload } from 'browser-sync';
 
-gulp.task('html', function() {
+gulp.task('html', ['clean'], () => {
   return gulp.src(config.src)
+    .pipe(plumber())
     .pipe(gulp.dest(config.dest))
-    .pipe(browserSync.reload({stream: true}));
+    .pipe(reload({ stream: true }));
 });

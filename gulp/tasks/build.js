@@ -1,5 +1,5 @@
 'use strict';
 
-var gulp = require('gulp');
+import gulp from 'gulp';
 
-gulp.task('build', ['browserify', 'fonts', 'compass', 'html', 'htaccess', 'images']);
+gulp.task('build', ['html', 'htaccess', 'img', 'styles', 'scripts', 'test']);

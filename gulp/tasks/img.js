@@ -2,9 +2,9 @@
 
 import gulp from 'gulp';
 import plumber from 'gulp-plumber';
-import { htaccess as config } from '../config';
+import { img as config } from '../config';
 
-gulp.task('htaccess', ['clean'], () => {
+gulp.task('img', ['clean'], () => {
   return gulp.src(config.src)
     .pipe(plumber())
     .pipe(gulp.dest(config.dest));

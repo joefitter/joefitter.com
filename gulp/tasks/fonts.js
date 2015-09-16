@@ -1,11 +1,11 @@
 'use strict';
 
-var gulp = require('gulp');
-var config = require('../config').fonts;
-var browserSync = require('browser-sync');
+import gulp from 'gulp';
+import { fonts as config } from '../config';
+import plumber from 'gulp-plumber';
 
-gulp.task('fonts', function() {
+gulp.task('fonts', ['clean'], () => {
   return gulp.src(config.src)
-    .pipe(gulp.dest(config.dest))
-    .pipe(browserSync.reload({stream: true}));
+    .pipe(plumber())
+    .pipe(gulp.dest(config.dest));
 });

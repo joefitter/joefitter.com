@@ -1,15 +1,15 @@
 'use strict';
 
-var nodemon = require('gulp-nodemon');
-var gulp = require('gulp');
-var config = require('../config').nodemon;
+import gulp from 'gulp';
+import nodemon from 'nodemon';
+import { nodemon as config } from '../config';
 
-gulp.task('nodemon', function(cb) {
-  var called = false;
+gulp.task('nodemon', cb => {
+  let called = false;
   return nodemon({
-    script: config.src,
-    ignore: config.ignore,
-  }).on('start', function() {
+    script: config.script
+  })
+  .on('start', () => {
     if (!called) {
       called = true;
       cb();
