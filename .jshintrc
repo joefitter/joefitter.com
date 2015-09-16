@@ -1,50 +1,52 @@
 {
-  "passfail": false,
-  "maxerr": 200,
+  /*
+   * ENVIRONMENTS
+   * =================
+   */
+
+  // Define globals exposed by modern browsers.
   "browser": true,
+
+  // Define globals exposed by Node.js.
   "node": true,
-  "dojo": false,
-  "devel": true,
-  "predef": [
-  ],
-  "debug": false,
-  "devel": false,
-  "strict": true,
-  "globalstrict": false,
-  "asi": false,
-  "laxbreak": false,
-  "bitwise": true,
-  "boss": false,
-  "curly": true,
+
+  // Allow ES6.
+  "esnext": true,
+
+  /*
+   * ENFORCING OPTIONS
+   * =================
+   */
+
+  // Prohibit use of == and != in favor of === and !==.
   "eqeqeq": true,
-  "eqnull": false,
-  "evil": false,
-  "expr": false,
-  "forin": true,
-  "immed": true,
+
+  // Enforce tab width of 2 spaces.
+  "indent": 2,
+
+  // Prohibit use of a variable before it is defined.
   "latedef": true,
-  "loopfunc": false,
-  "noarg": true,
-  "regexp": false,
-  "regexdash": false,
-  "scripturl": false,
-  "shadow": false,
-  "supernew": false,
-  "undef": true,
+
+  // Require capitalized names for constructor functions.
   "newcap": true,
-  "noempty": true,
-  "nonew": false,
-  "nomen": false,
-  "onevar": false,
-  "plusplus": false,
-  "sub": false,
-  "trailing": true,
-  "white": true,
-  "unused": true,
-  "multistr": true,
-  "maxcomplexity": 10,
-  "maxdepth": 4,
-  "maxstatements": 25,
+
+  // Enforce use of single quotation marks for strings.
   "quotmark": "single",
-  "indent": 2
+
+  // Enforce placing 'use strict' at the top function scope
+  "strict": true,
+
+  // Prohibit use of explicitly undeclared variables.
+  "undef": true,
+
+  // Warn when variables are defined but never used.
+  "unused": true,
+
+  /*
+   * RELAXING OPTIONS
+   * =================
+   */
+
+  // Suppress warnings about == null comparisons.
+  "eqnull": true
 }

@@ -3,7 +3,7 @@
 #Folder settings
 relative_assets = true
 css_dir = "dist/css"
-sass_dir = "src/sass"
+sass_dir = "src"
 images_dir = "dist/img"
 fonts_dir = "dist/fonts"
 

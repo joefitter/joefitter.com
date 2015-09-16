@@ -1,0 +1,100 @@
+#content {
+  margin: 75px auto;
+
+  #cursor {
+    width: 0;
+    height: 1em;
+    border-left: 1px solid white;
+    @include animation(fadeInOut 1s infinite);
+  }
+
+  #cv, #marquee {
+    font-family: $droid-sans;
+    white-space: pre-wrap;
+    color: $grey-text;
+
+    >li {
+      text-indent: -1.20em;
+      padding-left: 1.20em;
+
+      @for $i from 1 through 10 {
+        &.tabs-#{$i} {
+          text-indent: -1.20em * ($i + 1);
+          padding-left: 1.20em * ($i + 1);
+        }
+      }
+    }
+
+    &#cv {
+      span:hover {
+        background-color: $mid-grey
+      }
+    }
+
+    &#marquee {
+      color: $white;
+      display: inline;
+
+      span {
+        @include transition(color 0.4s ease-in-out, background-color 0.4s ease-in-out);
+
+        a {
+          text-decoration: none;
+          @include animation(fadeIn 0.6s);
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+
+    .comment {
+      color: $grey-text;
+    }
+
+    .default {
+      color: $white;
+    }
+
+    .function {
+      color: $blue;
+    }
+
+    .string {
+      color: $light-blue;
+
+      a {
+        color: $orange;
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+
+    .identifier {
+      color: $yellow;
+    }
+
+    .reserved, .arg, .comparator, .modifier, .one, .one a {
+      color: $orange;
+    }
+
+    .two {
+      color: $white;
+      background-color: $pink;
+    }
+
+    .number {
+      color: $green;
+    }
+  }
+}
+
+@media print {
+  #content {
+    margin: 0 auto;
+  }
+}

@@ -1,0 +1,12 @@
+@import 'compass/css3/border-radius';
+@import 'compass/css3/animation';
+@import 'compass/css3/transition';
+
+@import '_fonts';
+@import '_variables';
+@import '_mixins';
+
+@import 'app/application/application.scss';
+@import 'app/header/header.scss';
+@import 'app/content/content.scss';
+@import 'app/footer/footer.scss';

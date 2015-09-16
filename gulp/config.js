@@ -23,7 +23,7 @@ module.exports = {
   browserify: {
     src: src + '/app/index.js',
     dest: dest + '/js',
-    exports: 'app.js',
+    exports: 'app.js'
   },
   images: {
     src: src + '/img/**',
